@@ -1,0 +1,14 @@
+/Users/rob/Desktop/Personal/NBASim/NBASim/bin/Debug/net7.0/NBASim
+/Users/rob/Desktop/Personal/NBASim/NBASim/bin/Debug/net7.0/NBASim.deps.json
+/Users/rob/Desktop/Personal/NBASim/NBASim/bin/Debug/net7.0/NBASim.runtimeconfig.json
+/Users/rob/Desktop/Personal/NBASim/NBASim/bin/Debug/net7.0/NBASim.dll
+/Users/rob/Desktop/Personal/NBASim/NBASim/bin/Debug/net7.0/NBASim.pdb
+/Users/rob/Desktop/Personal/NBASim/NBASim/obj/Debug/net7.0/NBASim.GeneratedMSBuildEditorConfig.editorconfig
+/Users/rob/Desktop/Personal/NBASim/NBASim/obj/Debug/net7.0/NBASim.AssemblyInfoInputs.cache
+/Users/rob/Desktop/Personal/NBASim/NBASim/obj/Debug/net7.0/NBASim.AssemblyInfo.cs
+/Users/rob/Desktop/Personal/NBASim/NBASim/obj/Debug/net7.0/NBASim.csproj.CoreCompileInputs.cache
+/Users/rob/Desktop/Personal/NBASim/NBASim/obj/Debug/net7.0/NBASim.dll
+/Users/rob/Desktop/Personal/NBASim/NBASim/obj/Debug/net7.0/refint/NBASim.dll
+/Users/rob/Desktop/Personal/NBASim/NBASim/obj/Debug/net7.0/NBASim.pdb
+/Users/rob/Desktop/Personal/NBASim/NBASim/obj/Debug/net7.0/NBASim.genruntimeconfig.cache
+/Users/rob/Desktop/Personal/NBASim/NBASim/obj/Debug/net7.0/ref/NBASim.dll
