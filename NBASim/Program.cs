@@ -1,73 +1,76 @@
-﻿public class Simulation
+﻿using System;
+
+namespace NBASim
 {
-    private int numGames;
-    private String teamName;
-
-    private int seasonsPlayed;
-    private int totalWins;
-    private int totalGames;
-    private int chipsWon;
-
-
-
-    public Simulation(int seasonLen, String team)
+    public class Simulation
     {
-        seasonsPlayed = 0;
-        totalGames = 0;
-        totalWins = 0;
-        chipsWon = 0;
+        private Team team;
 
-        numGames = seasonLen;
-        teamName = team;
-
-    }
-    public int GetSeasonLength()
-    {
-        return numGames;
-    }
-    public int GetSeasonsPlayed()
-    {
-        return seasonsPlayed;
-    }
-    public int GetTotalWins()
-    {
-        return totalWins;
-    }
-    public int GetTotalGames()
-    {
-        return totalGames;
-    }
-    public int GetChipsWon()
-    {
-        return chipsWon;
-    }
+        private int seasonsPlayed;
+        private int totalWins;
+        private int totalGames;
+        private int chipsWon;
 
 
-    public int RunSeason()
-    {
-        seasonsPlayed++;
-        int g = 0;
-        int acc = 0;
 
-        Random r = new Random();
-
-        while (g < numGames)
+        public Simulation(String teamLoc, String teamName)
         {
-            var i = r.NextDouble();
-            if (i <= .5)
+            seasonsPlayed = 0;
+            totalGames = 0;
+            totalWins = 0;
+            chipsWon = 0;
+
+            team = new Team(teamName, teamLoc);
+
+            teamName = team.GetName();
+
+        }
+        public int GetSeasonsPlayed()
+        {
+            return seasonsPlayed;
+        }
+        public int GetTotalWins()
+        {
+            return totalWins;
+        }
+        public int GetTotalGames()
+        {
+            return totalGames;
+        }
+        public int GetChipsWon()
+        {
+            return chipsWon;
+        }
+        public Team GetTeam()
+        {
+            return team;
+        }
+
+        public void RunSeason()
+        {
+            seasonsPlayed++;
+            int g = 0;
+            int acc = 0;
+
+            while (g < 82)
             {
-                acc++;
-                totalWins++;
+                Game gme = new Game(team, new Team("testname", "testloc"));
+
+                if (gme.GetWinner() == 0)
+                {
+                    acc++;
+                    team.SetWins();
+                }
+                g++;
+                team.SetGames();
             }
-            g++;
-        }
 
-        totalGames += g;
-        if (acc >= 48)
-        {
-            chipsWon++;
-        }
+            if (acc >= 48)
+            {
+                team.SetChips();
+            }
 
-        return acc;
+            team.AddHistory(acc, seasonsPlayed-1);
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace NBASim
             Console.WriteLine("What team do you choose?");
             String? team = Console.ReadLine();
 
-            Simulation sim = new Simulation(82, "Celtics");
+            Simulation sim = new Simulation("Boston", "Celtics");
 
             while (state != 3)
 			{
@@ -24,6 +24,7 @@ namespace NBASim
                     case <= 0:
                         Console.WriteLine("state = 0. Press any key to start");
                         Console.ReadKey();
+                        Console.WriteLine();
                         state = 1;
                         break;
 
@@ -33,7 +34,8 @@ namespace NBASim
 
                         while (sim.GetSeasonsPlayed() < 20)
                         {
-                            Console.WriteLine($"In season '{sim.GetSeasonsPlayed() + 1}', your '{team}' team won '{sim.RunSeason()}' games.");
+                            sim.RunSeason();
+                            Console.WriteLine($"In season '{sim.GetSeasonsPlayed()}', your '{team}' team won '{sim.GetTeam().GetHistory(sim.GetSeasonsPlayed()-1)}' games.");
                         }
 
                         Console.WriteLine("Simulation Ended. Moving to state 2");
@@ -42,9 +44,9 @@ namespace NBASim
 
                     case <= 2:
                         Console.WriteLine("State = 2. Final Stats:");
-                        Console.WriteLine($"Total Wins: '{sim.GetTotalWins()}'");
-                        Console.WriteLine($"Total Games Played: '{sim.GetTotalGames()}'");
-                        Console.WriteLine($"Total Championships Won: '{sim.GetChipsWon()}'");
+                        Console.WriteLine($"Total Wins: '{sim.GetTeam().GetWins()}'");
+                        Console.WriteLine($"Total Games Played: '{sim.GetTeam().GetGames()}'");
+                        Console.WriteLine($"Total Championships Won: '{sim.GetTeam().GetChips()}'");
                         state = 3;
                         break;
 
