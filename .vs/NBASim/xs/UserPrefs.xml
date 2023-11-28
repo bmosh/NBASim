@@ -1,4 +1,22 @@
 ﻿<Properties StartupConfiguration="{27BD20F3-0134-4336-AEA5-E6E88FD32F28}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="NBASim/Game.cs">
+    <Files>
+      <File FileName="NBASim/Main.cs" Line="38" Column="162" />
+      <File FileName="NBASim/Team.cs" Line="61" Column="15" />
+      <File FileName="NBASim/Program.cs" Line="48" Column="1" />
+      <File FileName="NBASim/Game.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.NBASim FirstBuild="True" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.NBASim PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

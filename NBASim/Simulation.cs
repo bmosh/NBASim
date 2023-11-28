@@ -13,14 +13,14 @@ namespace NBASim
 
 
 
-        public Simulation(String teamLoc, String teamName)
+        public Simulation(String teamLoc, String teamName, bool good)
         {
             seasonsPlayed = 0;
             totalGames = 0;
             totalWins = 0;
             chipsWon = 0;
 
-            team = new Team(teamName, teamLoc);
+            team = new Team(teamName, teamLoc, good);
 
             teamName = team.GetName();
 
@@ -54,7 +54,7 @@ namespace NBASim
 
             while (g < 82)
             {
-                Game gme = new Game(team, new Team("testname", "testloc"));
+                Game gme = new Game(team, new Team("testname", "testloc", false));
 
                 if (gme.GetWinner() == 0)
                 {
@@ -71,6 +71,10 @@ namespace NBASim
             }
 
             team.AddHistory(acc, seasonsPlayed-1);
+        }
+        public void RunSingleGame()
+        {
+            Game gme = new Game(team, new Team("Testname", "TestLoc", false));
         }
     }
 }

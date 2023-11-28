@@ -13,12 +13,25 @@ namespace NBASim
 		private int gamesWon;
 		private int gamesPlayed;
 
+        private Player[] roster;
+
 		private int[] history;
 
-		public Team(String? teamName, String? teamLocation)
+		public Team(String? teamName, String? teamLocation, bool good)
 		{
 			chipsWon = 0;
 			gamesWon = 0;
+
+			this.roster = new Player[5];
+
+			if (good)
+			{
+				roster = BuildGoodRoster();
+			} else
+			{
+				roster = BuildBadRoster();
+			}
+
 
 			history = new int[20];
 
@@ -71,6 +84,48 @@ namespace NBASim
 		{
 			return history[year];
 		}
-	}
+		public Player GetPlayer(int player)
+		{
+			return roster[player];
+		}
+
+		public Player[] BuildGoodRoster()
+		{
+
+            double[] s = new double[3];
+			Player[] roster = new Player[5];
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                s[i] = .80;
+            }
+
+            for (int i = 0; i < roster.Length; i++)
+            {
+                roster[i] = new Player($"Player {i}", i, s);
+            }
+
+			return roster;
+        }
+
+        public Player[] BuildBadRoster()
+        {
+
+            double[] s = new double[3];
+            Player[] roster = new Player[5];
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                s[i] = .60;
+            }
+
+            for (int i = 0; i < roster.Length; i++)
+            {
+                roster[i] = new Player($"Player {i}", i, s);
+            }
+
+            return roster;
+        }
+    }
 }
 
