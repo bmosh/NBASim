@@ -126,6 +126,21 @@ namespace NBASim
 
             return roster;
         }
+
+		public Team NextGame(bool playoffs=false)
+		{
+			Random r = new Random();
+			var g = r.NextDouble();
+
+			if (playoffs || g > .5)
+			{
+				return new Team("TestGood", "Loc", true);
+			}
+			else
+			{
+				return new Team("TestBad", "Loc", false);
+			}
+		}
     }
 }
 

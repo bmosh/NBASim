@@ -15,7 +15,7 @@ namespace NBASim
             Console.WriteLine("What team do you choose?");
             String? team = Console.ReadLine();
 
-            Simulation sim = new Simulation("Boston", "Celtics", true);
+            Simulation sim = new Simulation(team, "Celtics", true);
 
             while (state != 3)
 			{
@@ -35,7 +35,18 @@ namespace NBASim
                         while (sim.GetSeasonsPlayed() < 1)
                         {
                             sim.RunSeason();
+
+                            var wins = sim.GetTeam().GetHistory(sim.GetSeasonsPlayed() - 1);
+
                             Console.WriteLine($"In season '{sim.GetSeasonsPlayed()}', your '{team}' team won {sim.GetTeam().GetHistory(sim.GetSeasonsPlayed()-1)} games.");
+
+                            if (wins > 48)
+                            {
+                                if (sim.RunPlayoffs())
+                                {
+                                    Console.WriteLine("A Championship Win!");
+                                }
+                            }
                         }
 
                         Console.WriteLine("Simulation Ended. Moving to state 2");

@@ -54,7 +54,7 @@ namespace NBASim
 
             while (g < 82)
             {
-                Game gme = new Game(team, new Team("testname", "testloc", false));
+                Game gme = new Game(team, team.NextGame(), debug: false);
 
                 if (gme.GetWinner() == 0)
                 {
@@ -72,9 +72,52 @@ namespace NBASim
 
             team.AddHistory(acc, seasonsPlayed-1);
         }
+        public bool RunPlayoffs()
+        {
+            int round = 0;
+
+
+            while (round <= 3)
+            {
+                Console.WriteLine($"Round: {round}");
+                int ourWins = 0;
+                int oppWins = 0;
+
+                while (ourWins < 4 && oppWins < 4)
+                {
+                    Game g = new Game(team, team.NextGame(playoffs: true), debug: true);
+                    if (g.GetWinner() == 0)
+                    {
+                        ourWins++;
+                    }
+                    else
+                    {
+                        oppWins++;
+                    }
+                }
+
+                if (ourWins > oppWins)
+                {
+                    round++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            if (round == 4)
+            {
+                team.SetChips();
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
+
         public void RunSingleGame()
         {
-            Game gme = new Game(team, new Team("Testname", "TestLoc", false));
+            Game gme = new Game(team, team.NextGame(), debug: true);
         }
     }
 }
